@@ -14,7 +14,7 @@
     <body>
         <div class="uk-container uk-container-expand">
             <h1 class="uk-text-primary uk-margin-top uk-margin-bottom">Listado de equipos</h1>
-            <a href="<c:url value = "agregar-equipo.htm"/>" class="uk-button uk-button-default"><span uk-icon="plus"></span>Agregar Equipo</a>
+            <a id="agregar" href="<c:url value = "agregar-equipo.htm"/>" class="uk-button uk-button-default"><span uk-icon="plus"></span>Agregar Equipo</a>
             <hr/>
             <table class="uk-table uk-table-divider uk-table-striped uk-table-hover">
                 <thead>
