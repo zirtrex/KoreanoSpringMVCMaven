@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <div class="uk-container uk-container-expand">
+        <div class="uk-container uk-container-expand uk-margin-bottom">
             <h1 class="uk-text-primary uk-margin-top uk-margin-bottom">Listado de equipos</h1>
             <a id="agregar" href="<c:url value = "agregar-equipo.htm"/>" class="uk-button uk-button-default"><span uk-icon="plus"></span>Agregar Equipo</a>
             <hr/>

@@ -157,11 +157,23 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
+        <!--<dependency>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.2</version>
+        </dependency>-->
+        
     </dependencies>
 
     <build>
         <finalName>KoreanoSpringMVCMaven</finalName>
 	<plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -223,7 +235,57 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.0.1</version>
+            </plugin>
+            
 	</plugins>
     </build>
+    
+    <!-- Informes del Site -->
+    <reporting>
+        <plugins>
+            <!-- Definición y configuración del plugin PMD  -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                  <targetJdk>${jdk.version}</targetJdk> 
+                  <rulesets>
+                        <ruleset>/rulesets/basic.xml</ruleset>
+                        <ruleset>/rulesets/braces.xml</ruleset>
+                        <ruleset>/rulesets/design.xml</ruleset>
+                        <ruleset>/rulesets/unusedcode.xml</ruleset>
+                        <ruleset>/rulesets/imports.xml</ruleset>
+                        <ruleset>/rulesets/controversial.xml</ruleset>
+                        <ruleset>/rulesets/migrating.xml</ruleset>
+                        <ruleset>/rulesets/strings.xml</ruleset>
+                        <ruleset>/rulesets/optimizations.xml</ruleset>
+                  </rulesets>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+    
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

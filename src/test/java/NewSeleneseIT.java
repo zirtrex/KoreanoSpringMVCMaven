@@ -50,11 +50,11 @@ public class NewSeleneseIT {
         wait.until(pageLoadCondition);
         
         WebElement nombre = driver.findElement(By.id("nombre"));
-        nombre.sendKeys("Equipo 3");  
+        nombre.sendKeys("Equipo 4");
         WebElement marca = driver.findElement(By.id("marca"));
         marca.sendKeys("Mazda");
         WebElement modelo = driver.findElement(By.id("modelo"));
-        modelo.sendKeys("3");
+        modelo.sendKeys("2");
         
         WebElement btnSubmit = driver.findElement(By.id("submit"));
         btnSubmit.click();
@@ -69,28 +69,16 @@ public class NewSeleneseIT {
     @Test
     public void testEditarEquipo() {
 
-        driver.get("http://localhost:8084/KoreanoSpringMVCMaven/");
+        driver.get("http://localhost:8084/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=10");        
         
-        WebElement btnAgregar = driver.findElement(By.id("agregar"));
-        btnAgregar.click();
-        
-        ExpectedCondition<Boolean> pageLoadCondition = new
-            ExpectedCondition<Boolean>() {
-                public Boolean apply(WebDriver driver) {
-                    return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
-                }
-            };
-        
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        
-        wait.until(pageLoadCondition);
+        WebDriverWait wait = new WebDriverWait(driver, 5);        
         
         WebElement nombre = driver.findElement(By.id("nombre"));
-        nombre.sendKeys("Equipo 3");  
+        nombre.sendKeys(" - Editado");  
         WebElement marca = driver.findElement(By.id("marca"));
-        marca.sendKeys("Mazda");
+        marca.sendKeys(" - Editado");
         WebElement modelo = driver.findElement(By.id("modelo"));
-        modelo.sendKeys("3");
+        modelo.sendKeys(" - Editado");
         
         WebElement btnSubmit = driver.findElement(By.id("submit"));
         btnSubmit.click();
@@ -98,7 +86,24 @@ public class NewSeleneseIT {
         WebElement mensaje = driver.findElement(By.className("uk-alert-danger"));
         wait.until(ExpectedConditions.visibilityOf(mensaje));
         
-        Assert.assertEquals("Se ha agregado el equipo correctamente", mensaje.getText());
+        Assert.assertEquals("Se ha editado el equipo correctamente", mensaje.getText());
+
+    }
+    
+    @Test
+    public void testEliminarEquipo() {
+
+        driver.get("http://localhost:8084/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=16");
+        
+        WebDriverWait wait = new WebDriverWait(driver, 10);        
+        
+        WebElement btnSubmit = driver.findElement(By.id("submit"));
+        btnSubmit.click();
+        
+        WebElement mensaje = driver.findElement(By.className("uk-alert-danger"));
+        wait.until(ExpectedConditions.visibilityOf(mensaje));
+        
+        Assert.assertEquals("Se ha eliminado el equipo correctamente", mensaje.getText());
 
     }
     

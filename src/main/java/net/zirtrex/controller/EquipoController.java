@@ -109,7 +109,7 @@ public class EquipoController {
     public String mostrarEliminarForm(HttpServletRequest request, Model model) {
             int codEquipo = Integer.parseInt(request.getParameter("codEquipo"));
             Equipo e = edao.obtenerEquipo(codEquipo);
-            if(e != null){
+            if(e.getCodEquipo() != 0){
                 model.addAttribute("equipo", e);
                 return "eliminar-equipo";
             }else{
