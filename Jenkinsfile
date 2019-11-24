@@ -3,6 +3,6 @@ node{
 		git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
 	}
 	stage('Compile-Package'){
-		sh 'mvn package'
+		bat 'mvn package'
 	}
 }
