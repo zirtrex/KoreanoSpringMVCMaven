@@ -15,6 +15,6 @@ node{
 		bat 'docker exec -d jwebserver2 ./bin/startup.sh'
 	}
 	stage('Ejecutar Mysql'){
-		
+		bat 'docker exec -d zirtrex/koreanoapp find /var/lib/mysql -type f -exec touch {} +; && service mysql start'
 	}
 }
