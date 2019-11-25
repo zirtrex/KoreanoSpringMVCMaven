@@ -6,7 +6,7 @@ node{
 		bat 'mvn package'
 	}
 	stage('Contruir Imagen Docker'){
-		bat 'docker build -t zirtrex/koreanoapp'
+		bat 'docker build -t zirtrex/koreanoapp .'
 	}
 	stage('Ejecutar docker'){
 		bat 'docker run --name jwebserver -t -i -p 8282:8080 zirtrex/koreanoapp /sbin/my_init -- bash -l'
