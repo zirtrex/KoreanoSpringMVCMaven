@@ -9,6 +9,12 @@ node{
 		bat 'docker build -f Dockerfile -t zirtrex/koreanoapp .'
 	}
 	stage('Ejecutar docker'){
-		bat 'winpty docker run --name jwebserver -t -i -p 8282:8080 zirtrex/koreanoapp'
+		bat 'docker run --name jwebserver2 -d -t -p 8282:8080 zirtrex/koreanoapp'
+	}
+	stage('Ejecutar Tomcat'){
+		bat 'docker exec -d zirtrex/koreanoapp ./bin/startup.sh'
+	}
+	stage('Ejecutar Mysql'){
+		bat 'docker exec -d zirtrex/koreanoapp find /var/lib/mysql -type f -exec touch {} \; && service mysql start'
 	}
 }
