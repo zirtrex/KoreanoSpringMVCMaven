@@ -8,6 +8,9 @@ node{
 	stage('Contruir Imagen Docker'){
 		bat 'docker build -f Dockerfile -t zirtrex/koreanoapp .'
 	}
+	stage('Eliminar contenedor docker'){
+		bat 'docker rm jwebserver2'
+	}
 	stage('Ejecutar docker'){
 		bat 'docker run --name jwebserver2 -d -t -p 8282:8080 zirtrex/koreanoapp'
 	}
