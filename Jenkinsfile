@@ -9,6 +9,6 @@ node{
 		bat 'docker build -f Dockerfile -t zirtrex/koreanoapp .'
 	}
 	stage('Ejecutar docker'){
-		bat 'docker run --name jwebserver -t -i -p 8282:8080 zirtrex/koreanoapp'
+		bat 'winpty docker run --name jwebserver -t -i -p 8282:8080 zirtrex/koreanoapp'
 	}
 }
