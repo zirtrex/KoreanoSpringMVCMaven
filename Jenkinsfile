@@ -9,13 +9,13 @@ node{
 		bat 'docker build -f Dockerfile -t zirtrex/koreanoapp .'
 	}
 	stage('Eliminar contenedor docker'){
-		
+		bat 'docker rm jwebserver2'
 	}
 	stage('Ejecutar docker'){
 		bat 'docker run --name jwebserver2 -d -t -p 8282:8080 zirtrex/koreanoapp'
 	}
 	stage('Ejecutar Tomcat'){
-		bat 'docker exec -d zirtrex/koreanoapp ./bin/startup.sh'
+		bat 'docker exec -d jwebserver2 ./bin/startup.sh'
 	}
 	stage('Ejecutar Mysql'){
 		
