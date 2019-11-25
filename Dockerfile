@@ -8,7 +8,7 @@ MAINTAINER  Rafael Contreras <rcontreras@zirtrex.net>
 CMD ["/sbin/my_init"]
 
 #RUN apt update
-RUN cd /usr/local/apache-tomcat-8.5.49
+WORKDIR /usr/local/apache-tomcat-8.5.49
 RUN chmod +x ./bin/startup.sh
 RUN ./bin/startup.sh
 RUN find /var/lib/mysql -type f -exec touch {} \; && service mysql start
