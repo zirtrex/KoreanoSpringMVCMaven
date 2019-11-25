@@ -14,7 +14,10 @@ node{
 	stage('Ejecutar Tomcat'){
 		bat 'docker exec -d jwebserver2 ./bin/startup.sh'
 	}
-	stage('Ejecutar Mysql'){
-		bat 'docker exec -d jwebserver2 find /var/lib/mysql -type f -exec touch {} +; && service mysql start'
+	stage('Ejecutar Mysql p1'){
+		bat 'docker exec -d jwebserver2 find /var/lib/mysql -type f -exec touch {} +'
+	}
+	stage('Ejecutar Mysql p2'){
+		bat 'docker exec -d jwebserver2 service mysql start'
 	}
 }
