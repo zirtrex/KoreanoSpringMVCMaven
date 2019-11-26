@@ -1,7 +1,7 @@
-node (master){
+def imagename = "zirtrex/koreanoapp"
+def container = "apache2"
 
-	def imagename = "zirtrex/koreanoapp"
-	def container = "apache2"
+node ('master'){	
 	
 	stage('Verificar SCM'){
 		git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
