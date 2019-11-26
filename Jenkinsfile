@@ -3,7 +3,8 @@ pipeline {
 	
 	environment {
 		imagename = 'zirtrex/koreanoapp'
-		container = 'jwebserver2'		
+		container = 'jwebserver2'
+		releasedVersion = getReleasedVersion()		
 	}
 	
     stages {
@@ -24,8 +25,7 @@ pipeline {
 			}
 		}
 		stage('Contruir Imagen Docker'){
-			steps {
-				releasedVersion = getReleasedVersion()
+			steps {				
 				dockerCmd  "build -f Dockerfile -t ${imagename}:${releasedVersion} ."
 			}
 		}
