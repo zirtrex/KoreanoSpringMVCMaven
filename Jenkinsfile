@@ -12,6 +12,12 @@ pipeline {
                 git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
             }
         }
+		stage('Ejecutar Pruebas Unitarias'){
+			steps {
+				powershell 'mvn clean'
+				powershell 'mvn -Dtest=net.zirtrex.controller.EquipoControllerTest  surefire:test'
+			}
+		}
 		stage('Compilar Paquete'){
 			steps {
 				powershell 'mvn clean package'
@@ -45,6 +51,10 @@ pipeline {
 def dockerCmd(args) {
 	powershell "docker ${args}"
 }
+
+def getReleasedVersion() {
+	return (readFile('pom.xml') = ~'<version>(.+)-SNAPSHOT</version>')[0][1]
+}	
 
 
 /*

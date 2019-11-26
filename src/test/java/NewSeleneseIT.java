@@ -1,10 +1,18 @@
+import java.net.MalformedURLException;
+import java.net.URL;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,22 +24,28 @@ import org.testng.annotations.Test;
 @RunWith(JUnit4.class)
 public class NewSeleneseIT {
     
-    private static WebDriver driver = null;
+    private WebDriver driver = null;
+    //private WebDriver driver = null;
+    private String browser = null;
+    private String baseUrl = null;
+    private String os = null;
+    private String node = null;    
     
     @BeforeClass
-    public static void inicializarDriver() {
+    public void inicializarDriver() throws MalformedURLException{
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Rafael\\Downloads\\geckodriver.exe");
         //System.setProperty("webdriver.gecko.driver", "R:\\geckodriver.exe");
+        //DesiredCapabilities firefox = DesiredCapabilities.firefox();
+        //firefox.setBrowserName("firefox");
+        //firefox.setPlatform(Platform.WIN10);
+        //firefox.setCapability("platform", Platform.WIN10);
+        //firefox.setCapability("marionette", true);
+        //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefox);
         driver = new FirefoxDriver();
     }
     
-    @AfterClass
-    public static void liquidarDriver() {
-        driver.quit();
-    }
-    
     @Test
-    public void testAgregarEquipo() {
+    public void testAgregarEquipo() {        
 
         driver.get("http://localhost:8080/KoreanoSpringMVCMaven/");
         
@@ -71,7 +85,7 @@ public class NewSeleneseIT {
 
         driver.get("http://localhost:8080/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=10");        
         
-        WebDriverWait wait = new WebDriverWait(driver, 5);        
+        WebDriverWait wait = new WebDriverWait(driver, 10);        
         
         WebElement nombre = driver.findElement(By.id("nombre"));
         nombre.sendKeys(" - Editado");  
@@ -95,7 +109,7 @@ public class NewSeleneseIT {
 
         driver.get("http://localhost:8080/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=16");
         
-        WebDriverWait wait = new WebDriverWait(driver, 10);        
+        WebDriverWait wait = new WebDriverWait(driver, 10); 
         
         WebElement btnSubmit = driver.findElement(By.id("submit"));
         btnSubmit.click();
@@ -105,6 +119,11 @@ public class NewSeleneseIT {
         
         Assert.assertEquals("Se ha eliminado el equipo correctamente", mensaje.getText());
 
+    }
+    
+    @AfterClass
+    public void liquidarDriver() {
+        driver.quit();
     }
     
 }
