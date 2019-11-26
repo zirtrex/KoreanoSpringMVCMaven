@@ -1,4 +1,8 @@
-node{
+def imagename = "zirtrex/koreanoapp"
+def container = "apache2"
+
+node (master){	
+	
 	stage('Verificar SCM'){
 		git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
 	}
@@ -6,18 +10,23 @@ node{
 		bat 'mvn package'
 	}
 	stage('Contruir Imagen Docker'){
-		bat 'docker build -f Dockerfile -t zirtrex/koreanoapp .'
+		dockerCmd  'build -f Dockerfile -t ${imagename} .'
 	}
-	stage('Ejecutar docker'){
-		bat 'docker run --name jwebserver2 -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql zirtrex/koreanoapp'
+	/*stage('Ejecutar docker'){
+		dockerCmd 'run --name ${container} -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql ${imagename}'
 	}
 	stage('Ejecutar Tomcat'){
-		bat 'docker exec -d jwebserver2 ./bin/startup.sh'
+		dockerCmd 'exec -d ${container} ./bin/startup.sh'
 	}
 	stage('Ejecutar Mysql p1'){
-		bat 'docker exec -d jwebserver2 find /var/lib/mysql -type f -exec touch {} +'
+		dockerCmd 'exec -d ${container} find /var/lib/mysql -type f -exec touch {} +'
 	}
 	stage('Ejecutar Mysql p2'){
-		bat 'docker exec -d jwebserver2 service mysql start'
-	}
+		dockerCmd 'exec -d ${container} service mysql start'
+	}*/
+	
+}
+
+def dockerCmd(args) {
+    powershell "docker ${args}"
 }
