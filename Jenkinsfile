@@ -29,7 +29,7 @@ pipeline {
 		}
     }
 	
-    post {
+    /*post {
         always {
             echo 'I will always say Hello again!'
         }
@@ -39,7 +39,7 @@ pipeline {
 		failure {
 			mail to: "zirtrex@live.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Ohhh, no se pasaron las pruebas."
 		}
-    }
+    }*/
 }
 
 def dockerCmd(args) {
