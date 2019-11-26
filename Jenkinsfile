@@ -28,6 +28,12 @@ pipeline {
         always {
             echo 'I will always say Hello again!'
         }
+		success {
+			mail to: "zirtrex@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Si, se pasaron las pruebas."
+		}
+		failure {
+			mail to: "zirtrex@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Ohhh, no se pasaron las pruebas."
+		}
     }
 }
 
