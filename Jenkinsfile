@@ -9,7 +9,7 @@ node{
 		bat 'docker build -f Dockerfile -t zirtrex/koreanoapp .'
 	}
 	stage('Ejecutar docker'){
-		bat 'docker run --name jwebserver2 -d -t -p 8282:8080 zirtrex/koreanoapp'
+		bat 'docker run --name jwebserver2 -d -t -p 8282:8080 zirtrex/koreanoapp --mount src=mysql-db-data,dst=/var/lib/mysql mysql'
 	}
 	stage('Ejecutar Tomcat'){
 		bat 'docker exec -d jwebserver2 ./bin/startup.sh'
