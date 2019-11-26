@@ -10,19 +10,19 @@ node ('master'){
 		powershell 'mvn package'
 	}
 	stage('Contruir Imagen Docker'){
-		dockerCmd  'build -f Dockerfile -t ${imagename} .'
+		dockerCmd  "build -f Dockerfile -t ${imagename} ."
 	}
 	/*stage('Ejecutar docker'){
-		dockerCmd 'run --name ${container} -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql ${imagename}'
+		dockerCmd "run --name ${container} -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql ${imagename}"
 	}
 	stage('Ejecutar Tomcat'){
-		dockerCmd 'exec -d ${container} ./bin/startup.sh'
+		dockerCmd "exec -d ${container} ./bin/startup.sh"
 	}
 	stage('Ejecutar Mysql p1'){
-		dockerCmd 'exec -d ${container} find /var/lib/mysql -type f -exec touch {} +'
+		dockerCmd "exec -d ${container} find /var/lib/mysql -type f -exec touch {} +"
 	}
 	stage('Ejecutar Mysql p2'){
-		dockerCmd 'exec -d ${container} service mysql start'
+		dockerCmd "exec -d ${container} service mysql start"
 	}*/
 	
 }
