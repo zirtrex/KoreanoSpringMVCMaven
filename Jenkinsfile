@@ -22,7 +22,7 @@ pipeline {
 				dockerCmd  "build -f Dockerfile -t ${imagename} ."
 			}
 		}*/
-		stage('Prueba de Integración con Selenium'){
+		stage('Prueba de Integracion con Selenium'){
 			steps {
 				powershell 'mvn -Dtest=NewSeleneseIT  surefire:test'
 			}
