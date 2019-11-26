@@ -1,5 +1,5 @@
-def imagename = "zirtrex/koreanoapp"
-def container = "apache2"
+def imagename = 'zirtrex/koreanoapp'
+def container = 'apache2'
 
 node ('master'){	
 	
@@ -7,7 +7,7 @@ node ('master'){
 		git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
 	}
 	stage('Compilar Paquete'){
-		bat 'mvn package'
+		powershell 'mvn package'
 	}
 	stage('Contruir Imagen Docker'){
 		dockerCmd  'build -f Dockerfile -t ${imagename} .'
