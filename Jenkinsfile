@@ -53,7 +53,7 @@ def dockerCmd(args) {
 }
 
 def getReleasedVersion() {
-	return (readFile('pom.xml') = ~'<version>(.+)-SNAPSHOT</version>')[0][1]
+	return (readFile('pom.xml') =~ '<version>(.+)-SNAPSHOT</version>')[0][1]
 }	
 
 
