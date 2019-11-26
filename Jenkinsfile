@@ -14,12 +14,17 @@ pipeline {
         }
 		stage('Compilar Paquete'){
 			steps {
-				powershell 'mvn package'
+				powershell 'mvn clean package'
 			}
 		}
 		stage('Contruir Imagen Docker'){
 			steps {
-				dockerCmd  "build -f Dockerfile -t ${imagename} ."
+				//dockerCmd  "build -f Dockerfile -t ${imagename} ."
+			}
+		}
+		stage('Prueba de Integración con Selenium'){
+			steps {
+				powershell 'mvn -Dtest=NewSeleneseIT  surefire:test'
 			}
 		}
     }
@@ -29,10 +34,10 @@ pipeline {
             echo 'I will always say Hello again!'
         }
 		success {
-			mail to: "zirtrex@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Si, se pasaron las pruebas."
+			mail to: "zirtrex@live.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Si, se pasaron las pruebas."
 		}
 		failure {
-			mail to: "zirtrex@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Ohhh, no se pasaron las pruebas."
+			mail to: "zirtrex@live.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Ohhh, no se pasaron las pruebas."
 		}
     }
 }

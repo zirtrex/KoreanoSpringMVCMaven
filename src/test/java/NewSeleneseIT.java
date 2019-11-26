@@ -1,4 +1,3 @@
-
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
@@ -14,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-//@RunWith(JUnit4.class)
+@RunWith(JUnit4.class)
 public class NewSeleneseIT {
     
     private static WebDriver driver = null;
@@ -22,6 +21,7 @@ public class NewSeleneseIT {
     @BeforeClass
     public static void inicializarDriver() {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Rafael\\Downloads\\geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "R:\\geckodriver.exe");
         driver = new FirefoxDriver();
     }
     
@@ -33,7 +33,7 @@ public class NewSeleneseIT {
     @Test
     public void testAgregarEquipo() {
 
-        driver.get("http://localhost:8084/KoreanoSpringMVCMaven/");
+        driver.get("http://localhost:8080/KoreanoSpringMVCMaven/");
         
         WebElement btnAgregar = driver.findElement(By.id("agregar"));
         btnAgregar.click();
@@ -69,7 +69,7 @@ public class NewSeleneseIT {
     @Test
     public void testEditarEquipo() {
 
-        driver.get("http://localhost:8084/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=10");        
+        driver.get("http://localhost:8080/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=10");        
         
         WebDriverWait wait = new WebDriverWait(driver, 5);        
         
@@ -93,7 +93,7 @@ public class NewSeleneseIT {
     @Test
     public void testEliminarEquipo() {
 
-        driver.get("http://localhost:8084/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=16");
+        driver.get("http://localhost:8080/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=16");
         
         WebDriverWait wait = new WebDriverWait(driver, 10);        
         
