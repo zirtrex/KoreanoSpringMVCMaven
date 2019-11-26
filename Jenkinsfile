@@ -3,11 +3,9 @@ pipeline {
 	
 	environment {
 		imagename = 'zirtrex/koreanoapp'
-		container = 'jwebserver2'
-		dockerCmd(args) {
-			powershell "docker ${args}"
-		}
+		container = 'jwebserver2'		
 	}
+	
     stages {
         stage('Verificar SCM') {
             steps {
@@ -31,6 +29,10 @@ pipeline {
             echo 'I will always say Hello again!'
         }
     }
+}
+
+def dockerCmd(args) {
+	powershell "docker ${args}"
 }
 
 
