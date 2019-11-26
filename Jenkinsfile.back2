@@ -1,40 +1,6 @@
-pipeline {
-    agent any
-	
-	environment {
-		imagename = 'zirtrex/koreanoapp'
-		container = 'jwebserver2'
-		dockerCmd(args) {
-			powershell "docker ${args}"
-		}
-	}
-    stages {
-        stage('Verificar SCM') {
-            steps {
-                git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
-            }
-        }
-		stage('Compilar Paquete'){
-			steps {
-				powershell 'mvn package'
-			}
-		}
-		stage('Contruir Imagen Docker'){
-			steps {
-				dockerCmd  "build -f Dockerfile -t ${imagename} ."
-			}
-		}
-    }
-	
-    post {
-        always {
-            echo 'I will always say Hello again!'
-        }
-    }
-}
+def imagename = 'zirtrex/koreanoapp'
+def container = 'jwebserver2'
 
-
-/*
 node ('master'){
 	
 	stage('Verificar SCM'){
@@ -46,7 +12,7 @@ node ('master'){
 	stage('Contruir Imagen Docker'){
 		dockerCmd  "build -f Dockerfile -t ${imagename} ."
 	}
-	stage('Ejecutar docker'){
+	/*stage('Ejecutar docker'){
 		dockerCmd "run --name ${container} -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql ${imagename}"
 	}
 	stage('Ejecutar Tomcat'){
@@ -57,11 +23,10 @@ node ('master'){
 	}
 	stage('Ejecutar Mysql p2'){
 		dockerCmd "exec -d ${container} service mysql start"
-	}
+	}*/
 	
 }
 
 def dockerCmd(args) {
     powershell "docker ${args}"
 }
-*/
