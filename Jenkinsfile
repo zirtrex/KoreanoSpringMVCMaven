@@ -17,11 +17,11 @@ pipeline {
 				powershell 'mvn clean package'
 			}
 		}
-		stage('Contruir Imagen Docker'){
+		/*stage('Contruir Imagen Docker'){
 			steps {
-				//dockerCmd  "build -f Dockerfile -t ${imagename} ."
+				dockerCmd  "build -f Dockerfile -t ${imagename} ."
 			}
-		}
+		}*/
 		stage('Prueba de Integración con Selenium'){
 			steps {
 				powershell 'mvn -Dtest=NewSeleneseIT  surefire:test'
