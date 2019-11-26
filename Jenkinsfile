@@ -15,7 +15,7 @@ pipeline {
 		stage('Ejecutar Pruebas Unitarias'){
 			steps {
 				powershell 'mvn clean'
-				powershell 'mvn -Dtest=net.zirtrex.controller.EquipoControllerTest  surefire:test'
+				powershell 'mvn -Dtest="net.zirtrex.controller.EquipoControllerTest"  surefire:test'
 			}
 		}
 		stage('Compilar Paquete'){
