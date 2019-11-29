@@ -36,7 +36,7 @@ pipeline {
 		}*/
 		stage('Ejecutar docker'){
 			steps {
-				dockerCmd "run --name ${container} -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql ${imagename}"
+				dockerCmd "run --name ${container} -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql ${imagename}:${releasedVersion}"
 			}	
 		}
 		stage('Ejecutar Tomcat'){
