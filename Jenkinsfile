@@ -21,7 +21,12 @@ pipeline {
 		}
 		stage('Compilar Paquete'){
 			steps {
-				powershell 'mvn clean package'
+				powershell 'mvn clean packagemvn'
+			}
+		}
+		stage('Ejecutar Sonar'){
+			steps {
+				powershell 'mvn install sonar:sonar'
 			}
 		}
 		stage('Contruir Imagen Docker'){
