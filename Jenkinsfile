@@ -21,7 +21,7 @@ pipeline {
 		}
 		stage('Compilar Paquete'){
 			steps {
-				powershell 'mvn clean packagemvn'
+				powershell 'mvn clean package'
 			}
 		}
 		stage('Ejecutar Sonar'){
