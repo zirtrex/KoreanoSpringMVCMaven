@@ -24,11 +24,11 @@ pipeline {
 				powershell 'mvn clean package'
 			}
 		}
-		stage('Ejecutar Sonar'){
+		/*stage('Ejecutar Sonar'){
 			steps {
 				powershell 'mvn install sonar:sonar'
 			}
-		}
+		}*/
 		stage('Contruir Imagen Docker'){
 			steps {				
 				dockerCmd  "build -f Dockerfile -t ${imagename}:${releasedVersion} ."
