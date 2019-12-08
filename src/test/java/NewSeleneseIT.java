@@ -83,7 +83,7 @@ public class NewSeleneseIT {
     @Test
     public void testEditarEquipo() {
 
-        driver.get("http://localhost:8080/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=1");
+        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=1");
         
         WebDriverWait wait = new WebDriverWait(driver, 10);        
         
