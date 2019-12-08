@@ -8,12 +8,12 @@ pipeline {
 	}
 	
     stages {
-        /*stage('Verificar SCM') {
+        stage('Verificar SCM') {
             steps {
                 git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
             }
         }
-		stage('Ejecutar Pruebas Unitarias'){
+		/*stage('Ejecutar Pruebas Unitarias'){
 			steps {
 				powershell 'mvn clean'
 				powershell 'mvn test -Dtest="net.zirtrex.controller.EquipoControllerTest" '
