@@ -13,18 +13,18 @@ pipeline {
                 git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
             }
         }
-		/*stage('Ejecutar Pruebas Unitarias'){
+		stage('Ejecutar Pruebas Unitarias'){
 			steps {
 				powershell 'mvn clean'
 				powershell 'mvn test -Dtest="net.zirtrex.controller.EquipoControllerTest" '
 			}
-		}*/
+		}
 		stage('Compilar Paquete'){
 			steps {
 				powershell 'mvn clean package'
 			}
 		}
-		/*stage('Ejecutar Sonar'){
+		stage('Ejecutar Sonar'){
 			steps {
 				powershell 'mvn install sonar:sonar'
 			}
@@ -53,7 +53,7 @@ pipeline {
 			steps {
 				dockerCmd "exec -d ${container} service mysql start"
 			}
-		}*/
+		}
 		stage('Prueba de Integracion con Selenium'){
 			steps {
 				powershell 'mvn -Dtest=NewSeleneseIT  surefire:test'
