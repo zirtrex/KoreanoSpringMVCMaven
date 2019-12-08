@@ -8,7 +8,7 @@ pipeline {
 	}
 	
     stages {
-        stage('Verificar SCM') {
+        /*stage('Verificar SCM') {
             steps {
                 git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
             }
@@ -53,7 +53,7 @@ pipeline {
 			steps {
 				dockerCmd "exec -d ${container} service mysql start"
 			}
-		}
+		}*/
 		stage('Prueba de Integracion con Selenium'){
 			steps {
 				powershell 'mvn -Dtest=NewSeleneseIT  surefire:test'
