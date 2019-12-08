@@ -18,13 +18,13 @@ pipeline {
 				powershell 'mvn clean'
 				powershell 'mvn test -Dtest="net.zirtrex.controller.EquipoControllerTest" '
 			}
-		}
+		}*/
 		stage('Compilar Paquete'){
 			steps {
 				powershell 'mvn clean package'
 			}
 		}
-		stage('Ejecutar Sonar'){
+		/*stage('Ejecutar Sonar'){
 			steps {
 				powershell 'mvn install sonar:sonar'
 			}
