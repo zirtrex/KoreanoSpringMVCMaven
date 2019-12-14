@@ -116,7 +116,7 @@ public class NewSeleneseIT {
     @Test
     public void testEliminarEquipo() {
 
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=5");
+        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=8");
         
         WebDriverWait wait = new WebDriverWait(driver, 10); 
         
