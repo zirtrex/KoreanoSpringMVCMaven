@@ -113,12 +113,21 @@ public class NewSeleneseIT {
 
     }
     
-    /*@Test
+    @Test
     public void testEliminarEquipo() {
 
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=2");
+        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=5");
         
         WebDriverWait wait = new WebDriverWait(driver, 10); 
+        
+        ExpectedCondition<Boolean> pageLoadCondition = new
+            ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                }
+            };
+        
+        wait.until(pageLoadCondition);
         
         WebElement btnSubmit = driver.findElement(By.id("submit"));
         btnSubmit.click();
@@ -128,7 +137,7 @@ public class NewSeleneseIT {
         
         Assert.assertEquals("Se ha eliminado el equipo correctamente", mensaje.getText());
 
-    }*/
+    }
     
     @AfterClass
     public void liquidarDriver() {
