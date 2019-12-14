@@ -83,7 +83,7 @@ public class NewSeleneseIT {
     @Test
     public void testEditarEquipo() {
 
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=2");
+        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=3");
         
         WebDriverWait wait = new WebDriverWait(driver, 5);  
         
@@ -104,7 +104,7 @@ public class NewSeleneseIT {
         modelo.sendKeys(" - Editado");
         
         WebElement btnSubmit = driver.findElement(By.id("submit"));
-        btnSubmit.click();        
+        btnSubmit.click();
         
         WebElement mensaje = driver.findElement(By.className("uk-alert-danger"));
         wait.until(ExpectedConditions.visibilityOf(mensaje));
