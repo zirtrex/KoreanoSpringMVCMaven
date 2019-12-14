@@ -24,16 +24,16 @@ pipeline {
 				powershell 'mvn clean package'
 			}
 		}
+		stage('Ejecutar Sonar'){
+			steps {
+				powershell 'mvn install sonar:sonar'
+			}
+		}
 		stage('Contruir Imagen Docker'){
 			steps {				
 				dockerCmd  "build -f Dockerfile -t ${imagename}:${releasedVersion} ."
 			}
-		}
-		/*stage('Prueba de Integracion con Selenium'){
-			steps {
-				powershell 'mvn -Dtest=NewSeleneseIT  surefire:test'
-			}
-		}*/
+		}		
 		stage('Ejecutar docker'){
 			steps {
 				dockerCmd "run --name ${container} -d -t -p 8282:8080 --mount src=mysql-db-data,dst=/var/lib/mysql ${imagename}:${releasedVersion}"
@@ -54,11 +54,16 @@ pipeline {
 				dockerCmd "exec -d ${container} service mysql start"
 			}
 		}
+		stage('Prueba de Integracion con Selenium'){
+			steps {
+				powershell 'mvn -Dtest=NewSeleneseIT  surefire:test'
+			}
+		}
     }
 	
-    /*post {
+    post {
         always {
-            echo 'I will always say Hello again!'
+            echo 'Hola!'
         }
 		success {
 			mail to: "zirtrex@live.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Si, se pasaron las pruebas."
@@ -66,7 +71,7 @@ pipeline {
 		failure {
 			mail to: "zirtrex@live.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Ohhh, no se pasaron las pruebas."
 		}
-    }*/
+    }
 }
 
 def dockerCmd(args) {
