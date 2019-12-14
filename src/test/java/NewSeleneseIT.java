@@ -85,7 +85,7 @@ public class NewSeleneseIT {
 
         driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=1");
         
-        WebDriverWait wait = new WebDriverWait(driver, 10);        
+        WebDriverWait wait = new WebDriverWait(driver, 20);        
         
         WebElement nombre = driver.findElement(By.id("nombre"));
         nombre.sendKeys(" - Editado");  

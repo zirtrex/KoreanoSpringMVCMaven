@@ -59,6 +59,7 @@ public class EquipoController {
         
         this.equipoValidation.validate(equipoIn, result);
         if (result.hasErrors()) {
+            model.addAttribute("message", "Validacion incorrecta");
             return "agregar-equipo";
         }else{
             int insert = edao.guardarEquipo(equipoIn);
@@ -74,7 +75,7 @@ public class EquipoController {
     }
     
     @RequestMapping(value="editar-equipo.htm", method = RequestMethod.GET)
-    public String mostrarEditarForm(HttpServletRequest request, Model model) {
+    public String mostrarEditarForm(HttpServletRequest request, ModelMap model) {
             int codEquipo = Integer.parseInt(request.getParameter("codEquipo"));
             Equipo e = edao.obtenerEquipo(codEquipo);
             if(e != null){

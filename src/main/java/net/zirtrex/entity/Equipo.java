@@ -95,42 +95,6 @@ public class Equipo {
         this.modelo = modelo;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public void setHorometro(Double horometro) {
-        this.horometro = horometro;
-    }
-
-    public void setKilometraje(Integer kilometraje) {
-        this.kilometraje = kilometraje;
-    }
-
-    public void setAnioFabricacion(String anioFabricacion) {
-        this.anioFabricacion = anioFabricacion;
-    }
-
-    public void setEstadoEquipo(String estadoEquipo) {
-        this.estadoEquipo = estadoEquipo;
-    }
-
-    public void setOperativo(String operativo) {
-        this.operativo = operativo;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     @Override
     public String toString() {
         return "Equipo{" + "codEquipo=" + codEquipo + ", nombre=" + nombre + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", categoria=" + categoria + ", horometro=" + horometro + ", kilometraje=" + kilometraje + ", anioFabricacion=" + anioFabricacion + ", estadoEquipo=" + estadoEquipo + ", operativo=" + operativo + ", observaciones=" + observaciones + ", descripcion=" + descripcion + '}';
