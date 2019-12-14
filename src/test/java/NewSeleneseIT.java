@@ -113,7 +113,7 @@ public class NewSeleneseIT {
 
     }
     
-    @Test
+    /*@Test
     public void testEliminarEquipo() {
 
         driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=8");
@@ -137,7 +137,7 @@ public class NewSeleneseIT {
         
         Assert.assertEquals("Se ha eliminado el equipo correctamente", mensaje.getText());
 
-    }
+    }*/
     
     @AfterClass
     public void liquidarDriver() {
