@@ -47,7 +47,7 @@ public class NewSeleneseIT {
     @Test
     public void testAgregarEquipo() {        
 
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/");
+        driver.get("http://localhost:8080/KoreanoSpringMVCMaven/");
         
         WebElement btnAgregar = driver.findElement(By.id("agregar"));
         btnAgregar.click();
@@ -83,7 +83,7 @@ public class NewSeleneseIT {
     @Test
     public void testEditarEquipo() {
 
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=3");
+        driver.get("http://localhost:8080/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=3");
         
         WebDriverWait wait = new WebDriverWait(driver, 5);  
         
