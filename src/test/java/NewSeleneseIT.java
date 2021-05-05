@@ -84,8 +84,18 @@ public class NewSeleneseIT {
     public void testEditarEquipo() {
 
         driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=1");
+
         
-        WebDriverWait wait = new WebDriverWait(driver, 10);        
+        WebDriverWait wait = new WebDriverWait(driver, 5);  
+        
+        ExpectedCondition<Boolean> pageLoadCondition = new
+            ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                }
+            };
+        
+        wait.until(pageLoadCondition);
         
         WebElement nombre = driver.findElement(By.id("nombre"));
         nombre.sendKeys(" - Editado");  
@@ -107,9 +117,20 @@ public class NewSeleneseIT {
     /*@Test
     public void testEliminarEquipo() {
 
+
         driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=2");
+
         
         WebDriverWait wait = new WebDriverWait(driver, 10); 
+        
+        ExpectedCondition<Boolean> pageLoadCondition = new
+            ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                }
+            };
+        
+        wait.until(pageLoadCondition);
         
         WebElement btnSubmit = driver.findElement(By.id("submit"));
         btnSubmit.click();

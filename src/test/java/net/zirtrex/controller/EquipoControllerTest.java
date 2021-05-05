@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import static org.mockito.Mockito.*;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import javax.servlet.http.HttpServletRequest;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.ui.ModelMap;
 import org.testng.Assert;
@@ -46,6 +47,9 @@ public class EquipoControllerTest {
     
     @Mock
     BindingResult result;
+    
+    @Mock
+    HttpServletRequest request;
     
     @BeforeClass
     public void setUp() throws Exception {
@@ -111,73 +115,19 @@ public class EquipoControllerTest {
      * Test of procesarAgregarForm method, of class EquipoController.
      */
     @Test
-    public void testProcesarAgregarForm() {
+    public void testProcesarAgregarFormTrue() {
         when(result.hasErrors()).thenReturn(false);
         when(service.guardarEquipo((Equipo)equipos.get(0))).thenReturn(1);
         Assert.assertEquals(equipoController.procesarAgregarForm( (Equipo) equipos.get(0), result, model), "agregar-equipo");
         Assert.assertEquals(model.get("message"), "Se ha agregado el equipo correctamente");
     }
-
-    /**
-     * Test of mostrarEditarForm method, of class EquipoController.
-     */
-    /*public void testMostrarEditarForm() {
-        System.out.println("mostrarEditarForm");
-        HttpServletRequest request = null;
-        Model model = null;
-        EquipoController instance = new EquipoController();
-        String expResult = "";
-        String result = instance.mostrarEditarForm(request, model);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
-
-    /**
-     * Test of procesarEditarForm method, of class EquipoController.
-     */
-    /*public void testProcesarEditarForm() {
-        System.out.println("procesarEditarForm");
-        Equipo equipoIn = null;
-        BindingResult result_2 = null;
-        Model model = null;
-        EquipoController instance = new EquipoController();
-        String expResult = "";
-        String result = instance.procesarEditarForm(equipoIn, result_2, model);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
-
-    /**
-     * Test of mostrarEliminarForm method, of class EquipoController.
-     */
-    /*public void testMostrarEliminarForm() {
-        System.out.println("mostrarEliminarForm");
-        HttpServletRequest request = null;
-        Model model = null;
-        EquipoController instance = new EquipoController();
-        String expResult = "";
-        String result = instance.mostrarEliminarForm(request, model);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
-
-    /**
-     * Test of procesarEliminarForm method, of class EquipoController.
-     */
-    /*public void testProcesarEliminarForm() {
-        System.out.println("procesarEliminarForm");
-        Equipo equipoIn = null;
-        BindingResult result_2 = null;
-        Model model = null;
-        EquipoController instance = new EquipoController();
-        String expResult = "";
-        String result = instance.procesarEliminarForm(equipoIn, result_2, model);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+    
+    @Test
+    public void testProcesarAgregarFormFalse() {
+        when(result.hasErrors()).thenReturn(true);
+        when(service.guardarEquipo((Equipo)equipos.get(0))).thenReturn(1);
+        Assert.assertEquals(equipoController.procesarAgregarForm( (Equipo) equipos.get(0), result, model), "agregar-equipo");
+        Assert.assertEquals(model.get("message"), "Validacion incorrecta");
+    }
     
 }

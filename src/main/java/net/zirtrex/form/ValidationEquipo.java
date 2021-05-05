@@ -30,6 +30,7 @@ public class ValidationEquipo implements Validator{
             errors.rejectValue("nombre", "field.min.length",
                 new Object[]{Integer.valueOf(MINIMUM_NOMBRE_LENGTH)},
                 "El nombre debe tener al menos [" + MINIMUM_NOMBRE_LENGTH + "] caracteres.");
+            
        }
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "nombre.required", "nombre es required");
 	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "marca", "marca.required", "marca es required");
