@@ -80,10 +80,11 @@ public class NewSeleneseIT {
 
     }
     
-    @Test
+    /*@Test
     public void testEditarEquipo() {
 
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=14"); 
+        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/editar-equipo.htm?codEquipo=1");
+
         
         WebDriverWait wait = new WebDriverWait(driver, 5);  
         
@@ -111,12 +112,14 @@ public class NewSeleneseIT {
         
         Assert.assertEquals("Se ha editado el equipo correctamente", mensaje.getText());
 
-    }
+    }*/
     
     /*@Test
     public void testEliminarEquipo() {
 
-        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=8");
+
+        driver.get("http://localhost:8282/KoreanoSpringMVCMaven/eliminar-equipo.htm?codEquipo=2");
+
         
         WebDriverWait wait = new WebDriverWait(driver, 10); 
         
