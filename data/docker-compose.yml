@@ -1,0 +1,12 @@
+version: '2'
+services:
+  mysql:
+    container_name: godialoginq_mysql_pre
+    image: 'mysql'
+    restart: always
+    volumes:
+      - './mysql_data:/var/lib/mysql'
+    environment:
+      - MYSQL_ROOT_PASSWORD=godialoginq
+    ports:
+      - '3305:3306'
