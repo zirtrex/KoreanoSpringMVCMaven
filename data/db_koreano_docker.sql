@@ -10,7 +10,3 @@ CREATE TABLE IF NOT EXISTS `sistema_koreano`.`equipo` (
 	`horometro` DECIMAL(10,2) NULL,
 	PRIMARY KEY (`codEquipo`)
 )ENGINE = InnoDB;
-
-
-Codigo para lanzar mysql
-find /var/lib/mysql -type f -exec touch {} \; && service mysql start
