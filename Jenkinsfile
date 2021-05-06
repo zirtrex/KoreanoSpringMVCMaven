@@ -26,7 +26,7 @@ pipeline {
 		}
 		stage('Ejecutar Sonar'){
 			steps {
-				powershell 'mvn install sonar:sonar'
+				powershell 'mvn clean install sonar:sonar'
 			}
 		}
 		stage('Contruir Imagen Docker'){

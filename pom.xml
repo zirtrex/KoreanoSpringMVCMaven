@@ -175,11 +175,11 @@
     <build>
         <finalName>KoreanoSpringMVCMaven</finalName>
 	<plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>2.6</version>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -225,8 +225,8 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.0.201403182114</version>
-                <executions>
+                <version>0.8.4-SNAPSHOT</version>
+                <!--<executions>
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
@@ -239,7 +239,7 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
