@@ -7,6 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Equipos</title>
         <link rel="stylesheet" href="<c:url value='/css/uikit.min.css'/>" />
+        <link rel="stylesheet" href="<c:url value='/css/style.css'/>" />
         <script src="<c:url value='/js/uikit.min.js'/>"></script>
         <script src="<c:url value='/js/uikit-icons.min.js'/>"></script>
     </head>
