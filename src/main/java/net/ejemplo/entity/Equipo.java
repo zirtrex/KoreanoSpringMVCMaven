@@ -1,4 +1,4 @@
-package net.zirtrex.entity;
+package net.ejemplo.entity;
 
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;

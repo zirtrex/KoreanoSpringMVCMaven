@@ -1,12 +1,12 @@
-package net.zirtrex.controller;
+package net.ejemplo.controller;
 
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import net.zirtrex.dao.EquipoDao;
-import net.zirtrex.entity.Equipo;
-import net.zirtrex.form.ValidationEquipo;
+import net.ejemplo.dao.EquipoDao;
+import net.ejemplo.entity.Equipo;
+import net.ejemplo.form.ValidationEquipo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;

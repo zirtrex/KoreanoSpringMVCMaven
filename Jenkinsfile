@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Verificar SCM') {
             steps {
-                git 'https://github.com/zirtrex/KoreanoSpringMVCMaven'
+                git 'https://gitlab.com/zirtrex/KoreanoSpringMVCMaven'
             }
         }
 		stage('Ejecutar Pruebas Unitarias'){

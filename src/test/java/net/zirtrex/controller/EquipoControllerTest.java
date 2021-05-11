@@ -1,9 +1,10 @@
 package net.zirtrex.controller;
 
+import net.ejemplo.controller.EquipoController;
 import java.util.ArrayList;
 import java.util.List;
-import net.zirtrex.dao.EquipoDao;
-import net.zirtrex.entity.Equipo;
+import net.ejemplo.dao.EquipoDao;
+import net.ejemplo.entity.Equipo;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

@@ -1,10 +1,10 @@
-package net.zirtrex.form;
+package net.ejemplo.form;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.NotNull;
-import net.zirtrex.entity.Equipo;
+import net.ejemplo.entity.Equipo;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;

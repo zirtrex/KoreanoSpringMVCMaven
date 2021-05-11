@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Equipos</title>
+        <title>Lista de Tareas</title>
         <link rel="stylesheet" href="<c:url value='/css/uikit.min.css'/>" />
         <link rel="stylesheet" href="<c:url value='/css/style.css'/>" />
         <script src="<c:url value='/js/uikit.min.js'/>"></script>
@@ -13,20 +13,19 @@
     </head>
 
     <body>
-        <div class="uk-container uk-container-expand uk-margin-bottom">
-            <h1 class="uk-text-primary uk-margin-top uk-margin-bottom">Listado de equipos</h1>
-            <a id="agregar" href="<c:url value = "agregar-equipo.htm"/>" class="uk-button uk-button-default"><span uk-icon="plus"></span>Agregar Equipo</a>
+        <div class="uk-container uk-margin-bottom">
+            <h1 class="uk-text-primary uk-margin-top uk-margin-bottom">Lista de Tareas</h1>
+            <a id="agregar" href="<c:url value = "agregar-equipo.htm"/>" class="uk-button uk-button-default"><span uk-icon="plus"></span>Agregar tarea</a>
             <hr/>
             <table class="uk-table uk-table-divider uk-table-striped uk-table-hover">
                 <thead>
                     <tr>
-                        <th>codEquipo</th>
-                        <th>nombre</th>
-                        <th>marca</th>
-                        <th>modelo</th>
-                        <th>placa</th>
-                        <th>categoria</th>
-                        <th>&nbsp;</th>
+                        <th>Código</th>
+                        <th>Tarea</th>
+                        <th>Detalle</th>
+                        <th>Fecha de creación</th>
+                        <th>Fecha de vencimiento</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>

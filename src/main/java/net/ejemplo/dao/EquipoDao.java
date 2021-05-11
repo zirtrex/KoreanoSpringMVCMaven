@@ -1,9 +1,9 @@
-package net.zirtrex.dao;
+package net.ejemplo.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import net.zirtrex.entity.Equipo;
+import net.ejemplo.entity.Equipo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;  
