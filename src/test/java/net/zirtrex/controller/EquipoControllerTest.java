@@ -94,41 +94,71 @@ public class EquipoControllerTest {
         
     }*/
     
+<<<<<<< HEAD
     /*@Test
+=======
+    @Test
+>>>>>>> 74baafb8d3067d2b760ee64f54d4ba5bc8fc7830
     public void testIndex() {        
         when(service.obtenerEquipos()).thenReturn(equipos);
         Assert.assertEquals(equipoController.index(model), "index");
         Assert.assertEquals(model.get("equipos"), equipos);
         verify(service, atLeastOnce()).obtenerEquipos();        
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> 74baafb8d3067d2b760ee64f54d4ba5bc8fc7830
 
     /**
      * Test of mostrarAgregarForm method, of class EquipoController.
      */
+<<<<<<< HEAD
     /*@Test
+=======
+    @Test
+>>>>>>> 74baafb8d3067d2b760ee64f54d4ba5bc8fc7830
     public void testMostrarAgregarForm() {
         Assert.assertEquals(equipoController.mostrarAgregarForm(model), "agregar-equipo");
         Assert.assertNotNull(model.get("equipo"));
         Assert.assertEquals(((Equipo) model.get("equipo")).getCodEquipo(), 0);
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> 74baafb8d3067d2b760ee64f54d4ba5bc8fc7830
 
     /**
      * Test of procesarAgregarForm method, of class EquipoController.
      */
+<<<<<<< HEAD
     /*@Test
+=======
+    @Test
+>>>>>>> 74baafb8d3067d2b760ee64f54d4ba5bc8fc7830
     public void testProcesarAgregarFormTrue() {
         when(result.hasErrors()).thenReturn(false);
         when(service.guardarEquipo((Equipo)equipos.get(0))).thenReturn(1);
         Assert.assertEquals(equipoController.procesarAgregarForm( (Equipo) equipos.get(0), result, model), "agregar-equipo");
         Assert.assertEquals(model.get("message"), "Se ha agregado el equipo correctamente");
+<<<<<<< HEAD
     }*/
     
     /*@Test
+=======
+    }
+    
+    @Test
+>>>>>>> 74baafb8d3067d2b760ee64f54d4ba5bc8fc7830
     public void testProcesarAgregarFormFalse() {
         when(result.hasErrors()).thenReturn(true);
         when(service.guardarEquipo((Equipo)equipos.get(0))).thenReturn(1);
         Assert.assertEquals(equipoController.procesarAgregarForm( (Equipo) equipos.get(0), result, model), "agregar-equipo");
         Assert.assertEquals(model.get("message"), "Validacion incorrecta");
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> 74baafb8d3067d2b760ee64f54d4ba5bc8fc7830
     
 }

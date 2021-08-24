@@ -35,7 +35,7 @@
         p:password="${jdbc.password}" />-->
    
     <context:annotation-config />
-    
+
     <!--<bean id="dataSource"
         class="org.springframework.jdbc.datasource.DriverManagerDataSource"
         p:driverClassName="com.mysql.jdbc.Driver"
@@ -48,7 +48,7 @@
     </bean>
     
     <bean id="edao" class="net.zirtrex.dao.EquipoDao">  
-        <property name="jdbcTemplate" ref="jdbcTemplate"></property>  
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
     </bean>-->
 
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->

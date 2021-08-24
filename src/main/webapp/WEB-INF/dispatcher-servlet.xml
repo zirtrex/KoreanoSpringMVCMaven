@@ -81,8 +81,9 @@
     </bean>
     
     <bean id="edao" class="net.zirtrex.dao.EquipoDao">  
-        <property name="jdbcTemplate" ref="jdbcTemplate"></property>  
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
     </bean>-->
+
     
     <!-- Configure the multipart resolver 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">      

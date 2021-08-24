@@ -144,7 +144,6 @@
             <scope>test</scope>
             <version>3.4.0</version>
         </dependency>
-
         
         <!--<dependency>
             <groupId>org.sonarsource.scanner.maven</groupId>
@@ -165,6 +164,7 @@
             <artifactId>firebase-admin</artifactId>
             <version>8.0.1</version>
         </dependency>
+
 
     </dependencies>
 
@@ -217,6 +217,25 @@
                     <stopKey>STOP</stopKey>
                     <stopPort>8005</stopPort>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.4-SNAPSHOT</version>
+                <!--<executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import net.ejemplo.dao.EquipoDao;
 import net.ejemplo.dao.EquipoDaoFB;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import net.ejemplo.dao.EquipoDao;
 import net.ejemplo.entity.Equipo;
 import net.ejemplo.form.ValidationEquipo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +35,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class EquipoController {
     
     private ValidationEquipo equipoValidation;     
-    
+
     /*@Autowired
     @Qualifier("edao")
     EquipoDao edao;*/
@@ -65,6 +68,7 @@ public class EquipoController {
         return "agregar-equipo";
     }
     
+
     /*@RequestMapping(value="procesar-equipo.htm", method = RequestMethod.POST)
     public String procesarAgregarForm(/*@Valid @ModelAttribute("equipo") @Validated Equipo equipoIn, BindingResult result, ModelMap model) {
         
